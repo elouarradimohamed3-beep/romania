@@ -1,69 +1,146 @@
-import Image from "next/image";
+import Link from "next/link";
+import { site, features, steps, testimonials } from "@/lib/site";
+import { Icon } from "@/components/Icons";
+import Hero from "@/components/Hero";
+import Pricing from "@/components/Pricing";
+import Faq from "@/components/Faq";
+import TrustBar from "@/components/TrustBar";
+import ChannelWall from "@/components/ChannelWall";
+import DeviceMockups from "@/components/DeviceMockups";
+import TrialForm from "@/components/TrialForm";
+import Reveal from "@/components/Reveal";
+import AboutSeo from "@/components/AboutSeo";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <Hero />
+      <TrustBar />
+
+      {/* Pricing */}
+      <Pricing />
+
+      {/* Features */}
+      <section className="container-page py-20">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <span className="text-sm font-semibold uppercase tracking-widest text-brand">De ce noi</span>
+          <h2 className="mt-2 text-3xl font-bold sm:text-4xl">
+            Alege cel mai bun furnizor de IPTV din România
+          </h2>
+          <p className="mt-3 text-muted">
+            Experimentează calitate, fiabilitate și suport de neegalat cu Romanian IPTV.
           </p>
+        </Reveal>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((f, i) => (
+            <Reveal key={f.title} delay={i * 0.05}>
+              <div className="card-hover h-full rounded-2xl border border-border bg-surface p-6">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand/15 text-brand">
+                  <Icon name={f.icon} />
+                </div>
+                <h3 className="mt-4 text-lg font-semibold">{f.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{f.body}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <ChannelWall />
+
+      {/* Free trial */}
+      <section id="test-gratuit" className="container-page py-10">
+        <Reveal>
+          <div className="rounded-2xl border border-accent/40 bg-gradient-to-r from-surface to-surface-2 p-8 md:p-12">
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="text-2xl font-bold sm:text-3xl">Testează gratuit înainte să cumperi</h2>
+              <p className="mt-3 text-muted">
+                Fără riscuri. Îți trimitem acces de test și te ajutăm la configurare pas cu pas.
+              </p>
+              <div className="mx-auto mt-6 max-w-xl">
+                <TrialForm />
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      <DeviceMockups />
+
+      {/* Steps */}
+      <section className="container-page py-20">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <span className="text-sm font-semibold uppercase tracking-widest text-brand">Simplu</span>
+          <h2 className="mt-2 text-3xl font-bold sm:text-4xl">
+            Cum să cumperi un abonament <span className="text-accent">🇷🇴</span>
+          </h2>
+        </Reveal>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {steps.map((s, i) => (
+            <Reveal key={s.n} delay={i * 0.08}>
+              <div className="card-hover relative h-full rounded-2xl border border-border bg-surface p-6">
+                <div className="text-5xl font-extrabold text-brand/25">{s.n}</div>
+                <h3 className="mt-2 text-lg font-semibold">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{s.body}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
-      </main>
-    </div>
+        <div className="mt-8 text-center">
+          <Link
+            href="#preturi"
+            className="inline-block rounded-full bg-brand px-7 py-3 font-semibold text-background transition-colors hover:bg-brand-strong"
+          >
+            Comandă IPTV România acum
+          </Link>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="container-page py-10">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <span className="text-sm font-semibold uppercase tracking-widest text-brand">Recenzii</span>
+          <h2 className="mt-2 text-3xl font-bold sm:text-4xl">Ce spun clienții noștri</h2>
+        </Reveal>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {testimonials.map((tst, i) => (
+            <Reveal key={tst.name} delay={i * 0.05}>
+              <div className="card-hover h-full rounded-2xl border border-border bg-surface p-6">
+                <div className="text-brand">★★★★★</div>
+                <p className="mt-3 text-sm leading-relaxed text-muted">“{tst.body}”</p>
+                <div className="mt-4 text-sm font-semibold">{tst.name}</div>
+                <div className="text-xs text-muted">{tst.location}</div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* About / GEO answer-first */}
+      <AboutSeo />
+
+      {/* FAQ */}
+      <Faq />
+
+      {/* Reseller CTA */}
+      <section className="container-page pb-10">
+        <Reveal>
+          <div className="rounded-2xl border border-brand/40 bg-surface p-8 text-center md:p-12">
+            <h2 className="text-2xl font-bold sm:text-3xl">Devino reseller</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-muted">
+              Romanian IPTV oferă una dintre cele mai calitative platforme IPTV pentru reselleri.
+              Contactează-ne pentru regulament și prețuri.
+            </p>
+            <a
+              href={site.whatsappLink}
+              className="mt-6 inline-block rounded-full border border-brand px-7 py-3 font-semibold text-brand transition-colors hover:bg-brand hover:text-background"
+            >
+              Vreau să fiu reseller
+            </a>
+          </div>
+        </Reveal>
+      </section>
+    </>
   );
 }
