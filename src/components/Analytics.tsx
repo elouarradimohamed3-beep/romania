@@ -1,4 +1,5 @@
 import Script from "next/script";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 
 export default function Analytics() {
   const plausible = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
@@ -6,6 +7,7 @@ export default function Analytics() {
 
   return (
     <>
+      <VercelAnalytics />
       {plausible && (
         <Script
           defer
