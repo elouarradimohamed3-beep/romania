@@ -14,7 +14,7 @@ import { site } from "@/lib/site";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${site.domain}`;
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? site.url;
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),

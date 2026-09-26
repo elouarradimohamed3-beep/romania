@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { posts, site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = `https://${site.domain}`;
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? site.url;
   const routes = [
     "",
     "/canale",

@@ -1,6 +1,9 @@
 export const site = {
   name: "Romanian IPTV",
   domain: "romanianiptv.ro",
+  // Canonical host that the domain actually serves (non-www redirects to www).
+  // Used for sitemap, robots, canonical tags and structured data.
+  url: "https://www.romanianiptv.ro",
   tagline: "Poarta Ta către Divertisment Nelimitat",
   whatsapp: "+212707711512",
   whatsappLink: "https://wa.me/212707711512",

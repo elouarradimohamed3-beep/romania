@@ -1,7 +1,7 @@
 import { site, plans, faqs, steps, testimonials } from "@/lib/site";
 
 export default function JsonLd() {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${site.domain}`;
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? site.url;
 
   const data = [
     {
