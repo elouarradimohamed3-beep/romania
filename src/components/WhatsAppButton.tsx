@@ -8,7 +8,7 @@ export default function WhatsAppButton() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-5 right-5 z-50">
+    <div className="fixed bottom-20 right-5 z-50 md:bottom-5">
       {open && (
         <div className="mb-3 w-72 overflow-hidden rounded-2xl border border-border bg-surface shadow-2xl">
           <div className="flex items-center gap-3 bg-[#075E54] px-4 py-3 text-white">

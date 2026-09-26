@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieConsent from "@/components/CookieConsent";
 import ExitIntent from "@/components/ExitIntent";
+import MobileCta from "@/components/MobileCta";
 import Analytics from "@/components/Analytics";
 import JsonLd from "@/components/JsonLd";
 import { LanguageProvider } from "@/lib/i18n";
@@ -90,6 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>{children}</main>
           <Footer />
           <WhatsAppButton />
+          <MobileCta />
           <ExitIntent />
           <CookieConsent />
         </LanguageProvider>

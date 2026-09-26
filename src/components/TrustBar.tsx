@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { Icon } from "./Icons";
-import PaymentLogos from "./PaymentLogos";
 
 const badges = [
   { label: "Garanție 100% returnare bani", icon: "check" },
@@ -36,7 +36,13 @@ export default function TrustBar() {
         {/* payment methods */}
         <div className="mt-6 flex flex-col items-center gap-3">
           <span className="text-xs text-muted">Plată securizată:</span>
-          <PaymentLogos />
+          <Image
+            src="/payments.jpg"
+            alt="Metode de plată acceptate: Visa, Mastercard, PayPal, Apple Pay, Google Pay"
+            width={2928}
+            height={359}
+            className="h-auto w-full max-w-xl"
+          />
         </div>
       </div>
     </section>
